@@ -13,8 +13,7 @@ const Navbar = () => {
               <span>Add Purchase</span>
             </Link>
             <Link to={"/sellinginfo"} className="btn btn-primary">
-              <PlusIcon className="size-5" />
-              <span>Add Selling Info</span>
+              <span>Selling Info</span>
             </Link>           
           </div>
         </div>
