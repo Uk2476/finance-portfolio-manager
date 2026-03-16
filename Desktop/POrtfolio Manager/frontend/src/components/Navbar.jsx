@@ -10,10 +10,10 @@ const Navbar = () => {
           <div className="flex items-left gap-5">
             <Link to={"/create"} className="btn btn-primary">
               <PlusIcon className="size-5" />
-              <span>Add Purchase</span>
+              <span>Add Holding</span>
             </Link>
-            <Link to={"/sellinginfo"} className="btn btn-primary">
-              <span>Past holdings
+            <Link to={"/pastholdings"} className="btn btn-primary">
+              <span>Past Holdings
               </span>
             </Link>           
           </div>
