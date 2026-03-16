@@ -13,7 +13,8 @@ const Navbar = () => {
               <span>Add Purchase</span>
             </Link>
             <Link to={"/sellinginfo"} className="btn btn-primary">
-              <span>Selling Info</span>
+              <span>Past holdings
+              </span>
             </Link>           
           </div>
         </div>
