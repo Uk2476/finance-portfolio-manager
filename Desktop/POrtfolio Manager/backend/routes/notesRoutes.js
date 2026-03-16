@@ -2,6 +2,7 @@ import express from 'express';
 import Creatennodes from '../controllers/Creatennodes.js';
 import {Getnotes , GetNotesById} from '../controllers/Getnotes.js';
 import {UpdateNote , UpdateSellingAmount} from '../controllers/Update.js';
+import Deletenotes from '../controllers/DeleteNotes.js';
 
 const router = express.Router();
 
@@ -14,6 +15,8 @@ router.post('/', Creatennodes);
 router.put('/:id/buying' , UpdateNote);
 
 router.put('/:id/selling' , UpdateSellingAmount);
+
+router.delete('/:id' , Deletenotes);
 
 
 export default router;
