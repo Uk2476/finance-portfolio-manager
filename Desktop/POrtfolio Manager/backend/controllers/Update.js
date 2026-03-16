@@ -12,3 +12,16 @@ export async function UpdateNote (req, res) {
         res.status(500).json({ error: 'Failed to update note' });
     }
 }
+
+export async function UpdateSellingAmount (req, res) {
+    try {
+        const{SellingAmount} = req.body;
+        const updateNote = await Note.findByIdAndUpdate(req.params.id , {SellingAmount} , { new : true });
+        if(!updateNote){
+            return res.status(400).json({ msg : "Note not updated" });
+        }
+        res.status(201).json({ msg : "Note updated successfully" });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update note' });
+    }
+}
