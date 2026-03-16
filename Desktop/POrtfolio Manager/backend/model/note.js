@@ -9,10 +9,15 @@ const NoteScheme = new mongoose.Schema({
         type :String ,
         required : true,
     },
-    amount : {
+    BuyingAmount : {
+        type : Number ,
+        required : true,
+    },
+    SellingAmount : {
         type : Number ,
         required : true,
     }
+
 }, {timestamps : true})
 
 const Note = mongoose.model("Note" , NoteScheme);
