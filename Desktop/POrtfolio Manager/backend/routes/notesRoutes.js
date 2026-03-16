@@ -1,16 +1,19 @@
 import express from 'express';
-import { getnnodes , creatennodes , updatennodes , deletennodes , getnnodesById } from '../controllers/notesControllers.js';
+import Creatennodes from '../controllers/Creatennodes.js';
+import {Getnotes , GetNotesById} from '../controllers/Getnotes.js';
+import {UpdateNote , UpdateSellingAmount} from '../controllers/Update.js';
 
 const router = express.Router();
 
-router.get('/', getnnodes);
+router.get('/', Getnotes);
 
-router.get('/:id' , getnnodesById);
+router.get('/:id' , GetNotesById);
 
-router.post('/', creatennodes);
+router.post('/', Creatennodes);
 
-router.put('/:id' , updatennodes);
+router.put('/:id/buying' , UpdateNote);
 
-router.delete('/:id' , deletennodes);
+router.put('/:id/selling' , UpdateSellingAmount);
+
 
 export default router;
