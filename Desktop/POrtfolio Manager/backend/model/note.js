@@ -15,7 +15,8 @@ const NoteScheme = new mongoose.Schema({
     },
     SellingAmount : {
         type : Number ,
-        required : true,
+        required : false,
+        default : 0,
     }
 
 }, {timestamps : true})

@@ -15,10 +15,13 @@ export async function UpdateNote (req, res) {
 
 export async function UpdateSellingAmount (req, res) {
     try {
-        const{SellingAmount} = req.body;
+        const{ SellingAmount} = req.body;        
+        if(req.body.SellingAmount === undefined){
+            return res.status(400).json({ msg : "Selling amount is required" });
+        }
         const updateNote = await Note.findByIdAndUpdate(req.params.id , {SellingAmount} , { new : true });
         if(!updateNote){
-            return res.status(400).json({ msg : "Note not updated" });
+            return res.status(404).json({ msg : "Note not found" });
         }
         res.status(201).json({ msg : "Note updated successfully" });
     } catch (error) {
