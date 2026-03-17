@@ -1,13 +1,21 @@
-import Note from '../model/note.js';
+import db from "../config/firebase.js";
 
 async function Creatennodes(req, res) {
   try {
     const { name , type , BuyingAmount} = req.body;
-    const NewNote = new Note({ name, type, BuyingAmount });
-    if(!NewNote){
-      res.status(400).json({ msg : "Note not found" });
-    }
-    await NewNote.save();
+
+    if (!name || !type || !BuyingAmount) {
+      return res.status(400).json({ error: 'Missing required fields' });
+   }
+
+    await db.collection("portfolios").add({
+      name : name,
+      type : type,
+      BuyingAmount : BuyingAmount,
+      SellingAmount: 0,             
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
     res.status(201).json({ message: 'Node created successfully' });
   } catch (error) {
     console.error("error in creatennodes function" , error);

@@ -1,30 +1,19 @@
-import Note from '../model/note.js';
+import  db  from "../config/firebase.js";
 
-export async function UpdateNote (req, res) {
-    try {
-        const {name , type , BuyingAmount} = req.body;
-        const updateNote = await Note.findByIdAndUpdate(req.params.id , {name, type, BuyingAmount} , { new : true });
-        if(!updateNote){
-            return res.status(400).json({ msg : "Note not updated" });
-        }
-        res.status(201).json({ msg : "Note updated successfully" });
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to update note' });
-    }
-}
-
-export async function UpdateSellingAmount (req, res) {
+async function UpdateSellingAmount (req, res) {
     try {
         const{ SellingAmount} = req.body;        
         if(req.body.SellingAmount === undefined){
             return res.status(400).json({ msg : "Selling amount is required" });
         }
-        const updateNote = await Note.findByIdAndUpdate(req.params.id , {SellingAmount} , { new : true });
-        if(!updateNote){
-            return res.status(404).json({ msg : "Note not found" });
-        }
+        await db.collection("portfolios").doc(req.params.id).update({
+            SellingAmount : SellingAmount,
+            updatedAt: new Date()
+        });
         res.status(201).json({ msg : "Note updated successfully" });
     } catch (error) {
         res.status(500).json({ error: 'Failed to update note' });
     }
 }
+
+export default UpdateSellingAmount;
