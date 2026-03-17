@@ -17,7 +17,7 @@ const SellingInfoPage = () => {
                 return;
             }
         
-            await axios.put(`http://localhost:5001/api/portfolio/selling/${id}`, {
+            await axios.put(`https://finance-portfolio-manager.onrender.com/api/portfolio/selling/${id}`, {
                 SellingAmount
             });
             alert("Selling amount updated successfully");

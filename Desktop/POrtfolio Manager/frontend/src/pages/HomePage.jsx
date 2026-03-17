@@ -8,7 +8,7 @@ const HomePage = () => {
 
     const fetchNotes = async() =>{
         try {
-            const res = await axios.get("http://localhost:5001/api/portfolio");
+            const res = await axios.get("https://finance-portfolio-manager.onrender.com/api/portfolio");
             setNotes(res.data);
             console.log(res.data);
         }
@@ -31,7 +31,7 @@ const HomePage = () => {
                     <div className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {notes.map((note) => (
                             note.SellingAmount === 0 &&
-                                <NoteCard key={note._id} note={note} />
+                                <NoteCard key={note.id} note={note} />
                         ))}
                     </div>
                 )}

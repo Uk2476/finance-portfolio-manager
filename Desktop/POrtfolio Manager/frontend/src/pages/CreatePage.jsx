@@ -20,7 +20,7 @@ const CreatePage = () => {
 
     try {
 
-      await axios.post("http://localhost:5001/api/portfolio", {
+      await axios.post("https://finance-portfolio-manager.onrender.com/api/portfolio", {
         name,
         type,
         BuyingAmount

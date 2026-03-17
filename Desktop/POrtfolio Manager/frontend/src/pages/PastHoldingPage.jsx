@@ -9,7 +9,7 @@ const PastHolding = () => {
 
   const fetchHoldings = async() => {
     try {
-      const res = await axios.get("http://localhost:5001/api/portfolio");
+      const res = await axios.get("https://finance-portfolio-manager.onrender.com/api/portfolio");
       setHoldings(res.data);
       console.log(res.data);
     } catch (error) {
