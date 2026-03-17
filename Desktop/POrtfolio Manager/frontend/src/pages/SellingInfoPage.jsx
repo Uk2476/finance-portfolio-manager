@@ -4,9 +4,6 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 
 const SellingInfoPage = () => {
-    const [name, setName] = useState("");
-    const [type, setType] = useState("");
-    const [BuyingAmount, setBuyingAmount] = useState("");
     const [SellingAmount, setSellingAmount] = useState("");
     const navigate = useNavigate();
     const {id} = useParams();

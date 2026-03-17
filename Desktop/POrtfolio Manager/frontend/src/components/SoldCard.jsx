@@ -1,4 +1,3 @@
-import { formatDate } from "../lib/utils"
 
 const SoldCard = ({holding}) => {
   
@@ -10,7 +9,7 @@ const SoldCard = ({holding}) => {
         <p className="text-base-content/70 ">Sold At : {holding.SellingAmount} </p>
         <div className="card-actions justify-between items-center mt-4">
           <span className="text-sm text-base-content/60">
-            {formatDate(new Date(holding.updatedAt))}
+            {holding.updatedAt?._seconds ? new Date(holding.updatedAt._seconds * 1000).toLocaleDateString() : "error"}
           </span>        
         </div>
     </div>
